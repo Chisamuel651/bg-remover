@@ -14,6 +14,10 @@ import twitter_icon from './twitter_icon.svg'
 import profile_img_1 from './profile_img_1.png'
 import profile_img_2 from './profile_img_2.png'
 import credit_icon from './credit_icon.png'
+import upload_img from './upload_img.png'
+import remove_btn_icon from './remove_icon_btn.svg'
+import upload_btn_icon_2 from './upload_icon_btn.svg'
+import download_btn_icon from './download_icon_btn.svg'
 
 export const assets = {
     logo,
@@ -29,23 +33,27 @@ export const assets = {
     google_plus_icon,
     twitter_icon,
     upload_btn_icon,
-    credit_icon
+    credit_icon,
+    upload_img,
+    remove_btn_icon,
+    upload_btn_icon_2,
+    download_btn_icon
 }
 
 export const testimonialsData = [
     {
         id: 1,
-        text: "I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
-        author: "Richard Nelson",
+        text: "We're proud to launch our background remover app! It's designed to help you make your images stand out like never before. Let's get creative!",
+        author: "Chi Samuel A.",
         image: profile_img_1,
-        jobTitle:'Web Developer'
+        jobTitle:'Developer At Solumentics'
     },
     {
         id: 2,
-        text: "I've been using bg.removal for nearly 6 months, I had a fantastic experience. The quality is top-notch. I recommend others to try this app.",
-        author: "Donald Jackman",
+        text: "Excited to bring you this powerful tool! With just a few clicks, you can transform your visuals and showcase your work in style. Enjoy using it!",
+        author: "Ojong Clinton",
         image: profile_img_2,
-        jobTitle:'UI Deginer'
+        jobTitle:'Developer At Solumentics'
     },
 ];
 
