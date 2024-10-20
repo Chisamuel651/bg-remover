@@ -8,3 +8,7 @@ const userSchema = new mongoose.Schema({
     lastName: { type:String },
     creditBalance: { type: Number, default: 250 }
 })
+
+const userModel = mongoose.models.user || mongoose.model("user", userSchema);
+
+export default userModel;
