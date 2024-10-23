@@ -10,7 +10,7 @@ const AppContextProvider = (props) => {
     const [credit, setCredit] = useState(false)
     // remvoe background from image
     const [image, setImage] = useState(false)
-    const [resutImage, setResultImage] = useState(false)
+    const [resultImage, setResultImage] = useState(false)
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const navigate = useNavigate()
@@ -47,9 +47,30 @@ const AppContextProvider = (props) => {
             setResultImage(false)
 
             navigate('/result')
+
+            const token = await getToken()
+
+            const formData = new FormData()
+            image && formData.append('image', image)
+
+            const {data} = await axios.post(backendUrl+'/api/image/remove-bg', formData,{headers:{token}})
+
+            if(data.success){
+                setResultImage(data.resultImage)
+
+                // update credit balance
+                data.creditBalance && setCredit(data.creditBalance)
+            }else{
+                toast.error(data.message)
+                data.creditBalance && setCredit(data.creditBalance)
+                if(data.creditBalance === 0){
+                    navigate('/buy')
+                }
+            }
         } catch (error) {
             console.log(error);
             toast.error(error.message)
+            console.log('there is an error somewhere')
         }
     }
 
@@ -58,7 +79,8 @@ const AppContextProvider = (props) => {
         loadCreditsData,
         backendUrl,
         image, setImage,
-        removeBg
+        removeBg,
+        resultImage, setResultImage
     }
 
     return (
